@@ -1,7 +1,7 @@
-from itertools import combinations
 import sys
 sys.stdin = open("input.text",  "rt")
 import sys
+from itertools import combinations
 input=sys.stdin.readline
 
 
@@ -13,4 +13,3 @@ if __name__=="__main__":
         for comb in combinations(arr,i):
             if sum(comb)==s:res+=1
     print(res)
-    
