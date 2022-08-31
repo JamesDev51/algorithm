@@ -23,4 +23,3 @@ if __name__=="__main__":
     res=0; before=0
     solve()
     print(res if before == length*width*height else -1)
->>>>>>> e79053426214f44d81850920355129dc97f17040
