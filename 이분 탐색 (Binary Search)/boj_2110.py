@@ -4,7 +4,13 @@ import sys
 input=sys.stdin.readline
 
 def check(limit):
-    now=
+    now=houses[0]; cnt=1
+    for i in range(1,n):
+        house=houses[i]
+        if house-now>=limit:
+            cnt+=1; 
+            now=house
+    return cnt
 
 def solve():
     lt,rt=1,max(houses)
