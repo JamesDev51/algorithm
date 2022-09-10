@@ -1,20 +1,6 @@
-<<<<<<< HEAD
-5 3
-1
-2
-8
-4
-9
-=======
-10
-1
-1
-1
-2
-2
-2
-2
-1
-1
-1
->>>>>>> 6bdc505a465c92c17d4d0836a5d8f3a95b9c1c4e
+<body> <strong>Oops, this is</body> naughty </strong>
+<body> <strong>Hello</strong> <br /> </body>
+Just text, no tags.
+<p> Oh dear, we are missing something.
+<a href="http://www.nzprogcontest.org.nz">This is a link</a>
+#
