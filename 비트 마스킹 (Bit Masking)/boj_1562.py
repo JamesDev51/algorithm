@@ -3,24 +3,25 @@ sys.stdin = open("input.text",  "rt")
 import sys
 input=sys.stdin.readline
 
-def solve(last,pos,status):
-    if dp[last][pos][status]!=0: return dp[last][pos][status]
+def dp(last,used,pos):
+    if pos==n:
+        return 1 if used==((1<<10)-1) else 0
     
-    if status==(1<<10)-1 and pos==n: return 1
+    ret=0
+    if last==0: ret+=dp(1,used&1<<1,pos+1)%mod
+    elif last==9: ret+=dp(8,used&1<<8,pos+1)%mod
+    else: 
+        ret+=dp(last-1,used&1<<(last-1),pos+1)%mod
+        ret+=dp(last+1,used&1<<(last+1),pos+1)%mod
+    return ret%mod
     
-    if 0<=last-1<=9 and pos+1<=n: dp[last][pos][status]+=solve(last-1,pos+1,status | 1<<last-1)
-    if 0<=last+1<=9 and pos+1<=n: dp[last][pos][status]+=solve(last+1,pos+1,status | 1<<last+1)
-    dp[last][pos][status]%=mod
-    return dp[last][pos][status]
-    
+
+
 if __name__=="__main__":
+    mod=1000000000
     n=int(input())
-
-    res=0
-    mod=1e9
-    dp=[[[0]*(1<<10) for _ in range(101)] for _ in range(10)] #last, pos, status
-
-    for st in range(1,10): res+=solve(st,1,1<<st)%mod
-
-    print(int(res%mod))
     
+    res=0
+    for start in range(1,10):
+        res+= dp(start,1<<start,1)%mod
+    print(res%mod)
