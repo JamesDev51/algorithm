@@ -25,8 +25,6 @@ def calcMedal(record):
             elif silver<=i<cop:medalDict[completedRecord[i][1]][2]+=1
     return medalDict
             
-            
-           
 def solution(record):
     answer = []
     
@@ -45,8 +43,5 @@ def solution(record):
         candidates.append((name,completedCnt,highestLevel,medal[name][0],medal[name][1],medal[name][2],timeSum))
     candidates.sort(key=lambda x:(-x[1],-x[2],-x[3],-x[4],-x[5],x[6],x[0]))
     for candidate in candidates: answer.append(candidate[0])
-        
-        
-            
-
+    
     return answer
