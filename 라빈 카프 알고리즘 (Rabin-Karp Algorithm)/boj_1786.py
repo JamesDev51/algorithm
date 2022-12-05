@@ -3,7 +3,7 @@ sys.stdin = open("input.text",  "rt")
 import sys
 input=sys.stdin.readline
 
-MOD=10000000000007
+MOD=1000000000000007
 def mod(n):
     if n>=0: return n%MOD
     else: return ((-n//MOD+1)*MOD+n)%MOD
@@ -21,10 +21,10 @@ if __name__=="__main__":
             for j in range(m):
                 g=mod(g+ord(t[m-1-j])*power)
                 h=mod(h+ord(p[m-1-j])*power)
-                if j<m-1: power=mod(power*5)  #가장 큰 값으로 그대로 유지 (이 부분을 빼줘야 하니까)
-        else: g = mod(5*(g-ord(t[i-1])*power) + ord(t[i+m-1]))
+                if j<m-1: power=mod(power*7)  #가장 큰 값으로 그대로 유지 (이 부분을 빼줘야 하니까)
+        else: g = mod(7*(g-ord(t[i-1])*power) + ord(t[i+m-1]))
         if g==h:
-            if flag: res.append(i+1)
+            res.append(i+1)
     print(len(res))
     print(*res)
     
