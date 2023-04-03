@@ -2,8 +2,6 @@ import sys
 sys.stdin = open("input.text",  "rt")
 import sys
 input=sys.stdin.readline
-import heapq
-
 
 if __name__=="__main__":
     n=int(input())
