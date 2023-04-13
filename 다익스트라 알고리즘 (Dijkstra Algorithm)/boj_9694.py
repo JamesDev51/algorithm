@@ -7,6 +7,7 @@ import heapq
 def dijkstra():
     dist=[float('inf')]*m
     dist[0]=0
+    before=[-1]*m
     heap=[]
     heapq.heappush(heap,(0,0))
     while heap:
@@ -15,23 +16,23 @@ def dijkstra():
         for next_node,next_d in graph[node]:
             if d+next_d<dist[next_node]:
                 dist[next_node]=d+next_d
+                before[next_node]=node
                 heapq.heappush(heap,(dist[next_node],next_node))
-    if dist[m-1]==float('inf'):ret="-1"
+    if dist[m-1]==float('inf'):print(-1)
     else:
         ret=""
         stack=[]
-        stack.append((0,0,"0"))
+        node=m-1
+        stack.append(m-1)
+        while True:
+            node=before[node]
+            stack.append(node)
+            if node==0:break
         while stack:
-            now_node,d,line=stack.pop()
-            if d>dist[m-1]:continue
-            if now_node==m-1 and d==dist[m-1]:
-                ret=line
-                break
-            for next_node,next_d in graph[now_node]:
-                if str(next_node) in line:continue
-                stack.append((next_node,d+next_d,line+" "+str(next_node)))
+            print(stack.pop(),end=" ")
 
-    return ret
+            
+                
 
 if __name__=="__main__":
     for t in range(1,int(input())+1):
@@ -41,6 +42,8 @@ if __name__=="__main__":
             x,y,z=map(int,input().split())
             graph[x].append((y,z))
             graph[y].append((x,z))
-        print(f"Case #{t}: {dijkstra()}")
+        print(f"Case #{t}: ",end="")
+        dijkstra()
+        print()
         
         
