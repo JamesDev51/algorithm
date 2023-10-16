@@ -40,6 +40,3 @@ if __name__=="__main__":
         wall_que1=deepcopy(wall_que2)
         wall_que2.clear()
     print(0)
-        
-    
-    
